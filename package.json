@@ -1,0 +1,27 @@
+{
+  "name": "noir-web-authentication",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@aztec/bb.js": "^0.3.6",
+    "@noir-lang/acvm_js": "git+https://git@github.com/noir-lang/acvm-simulator-wasm.git#b9d9ca9dfc5140839f23998d9466307215607c42",
+    "fflate": "^0.8.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.16.14",
+    "chai": "^4.3.7",
+    "hardhat": "^2.17.2",
+    "mocha": "^10.2.0",
+    "npmignore": "^0.3.0",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^4.9.3"
+  }
+}
