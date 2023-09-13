@@ -54,9 +54,8 @@ export function bufferToHex(buff: Buffer): string {
 export function convertToHexAndPad(val: any) {
   var res;
   if (val instanceof Uint8Array) res = uint8ArrayToBigInt(val).toString(16);
-  else res = BigInt(val).toString(16);
-  console.log(" RES = ", res);
-  return `0x${"0".repeat(64 - res.length)}${res}`;
+  else res = BigInt(val).toString(16).padStart(64, "0");
+  return `0x${res}`;
 }
 
 export function bigInt2BytesLE(_a: any, len: number) {

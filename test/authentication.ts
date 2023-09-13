@@ -1,22 +1,18 @@
-import { assert } from "node:console";
 import { authenticaion, registration } from "../src/mockdata.js";
 import { getAlgoParams } from "../src/scripts/server.js";
 import { NamedAlgo } from "../src/scripts/types.js";
 import * as utils from "../src/scripts/utils.js";
-import { convertToHexAndPad } from "../src/ulits/bits.js";
-import { X509Certificate } from "node:crypto";
-
+import { convertToHexAndPad } from "../src/utils/bits.js";
+import circuit from "../src/circuits/authentication/target/authentication.json" assert { type: "json" };
 import { webcrypto } from "node:crypto";
 
 import * as crypto from "node:crypto";
-
-import * as asn from "asn1js";
-
-import * as Forge from "node-forge";
-import { isTypedArray } from "node:util/types";
+import { validateWitness } from "../src/berretenberg-api/index.js";
+import { expect } from "chai";
 
 describe("test authentication", () => {
   before(async () => {});
+
   it("circuit authentication ", async () => {
     const algorithm: NamedAlgo = <NamedAlgo>registration.credential.algorithm;
     const publicKey = registration.credential.publicKey;
@@ -52,8 +48,8 @@ describe("test authentication", () => {
 
     console.log(" comboBuffer ", comboBuffer);
 
-    var challgne = await utils.sha256(comboBuffer);
-    console.log(" kk ", challgne);
+    var challenge = await utils.sha256(comboBuffer);
+    console.log(" kk ", challenge);
 
     const isValid = await webcrypto.subtle.verify(
       algoParams,
@@ -62,14 +58,14 @@ describe("test authentication", () => {
       comboBuffer
     );
 
-    console.log(" Verify on nodejs:crypto  = ", isValid);
+    expect(isValid).to.be.true;
 
-    const inputs = [
-      new Uint8Array(utils.parseBase64url(PublicKeyJSON.x!)),
-      new Uint8Array(utils.parseBase64url(PublicKeyJSON.y!)),
-      new Uint8Array(signatureBuffer),
-      new Uint8Array(challgne),
-    ];
+    let pubXInput = new Uint8Array(utils.parseBase64url(PublicKeyJSON.x!));
+    let pubYInput = new Uint8Array(utils.parseBase64url(PublicKeyJSON.y!));
+    let sigInput = new Uint8Array(signatureBuffer);
+    let challengeInput = new Uint8Array(challenge);
+
+    const inputs = [...pubXInput, ...pubYInput, ...sigInput, ...challengeInput];
 
     console.log(" INPUT = ", inputs);
 
@@ -79,6 +75,9 @@ describe("test authentication", () => {
     });
 
     console.log(witness);
+
+    const isWitnessValid = await validateWitness(witness, circuit);
+    expect(isWitnessValid).to.be.true;
   });
 });
 
