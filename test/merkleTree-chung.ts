@@ -1,7 +1,7 @@
 import { CryptographyPrimitives } from "../src/crypto/index.js";
 import { expect } from "chai";
 import { buildPoseidon } from "../src/crypto/poseidon_wasm.js";
-import { NormalMerkleTree } from "../src/scripts-merkleTree/tree/normal-merkle-tree.js";
+import { NormalMerkleTree } from "../src/tree/normal-merkle-tree.js";
 
 import circuit from "../src/circuits/merkleTree/target/merkleTree.json" assert { type: "json" };
 import { convertToHexAndPad } from "../src/utils/bits.js";
