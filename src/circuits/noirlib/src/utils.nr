@@ -1,4 +1,4 @@
-use dep::std::poseidon::bn254::hash2;
+use dep::std::hash::poseidon::bn254::hash_2;
 
 fn from_le_bytes(bytes: [u8; 32]) -> [Field; 2]{
     let mut hi: Field = 0;
@@ -39,6 +39,7 @@ fn validate_mtp<N>(leaf: Field, index: Field, path: [Field; N], root: Field) -> 
         current = hash_2([hash_left, hash_right]);
     };
     assert(current == root);
+    current
 }
 
 
