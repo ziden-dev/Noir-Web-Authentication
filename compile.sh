@@ -14,3 +14,8 @@ cd src/circuits/registerTransaction
 echo "Compiling the registerTransaction circuit..."
 nargo compile 
 echo "Successfully compiled the registerTransaction circuit"
+cd ../../../
+cd src/circuits/addKeyTransaction
+echo "Compiling the addKeyTransaction circuit..."
+nargo compile 
+echo "Successfully compiled the addKeyTransaction circuit"
