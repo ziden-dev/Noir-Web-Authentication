@@ -160,7 +160,7 @@ type AlgoParams =
   | HmacImportParams
   | AesKeyAlgorithm;
 
-async function parseCryptoKey(
+export async function parseCryptoKey(
   algoParams: AlgoParams,
   publicKey: string
 ): Promise<CryptoKey> {

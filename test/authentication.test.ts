@@ -1,13 +1,13 @@
 import { authenticaion, registration } from "../src/mockdata.js";
-import { getAlgoParams } from "../src/scripts/server.js";
-import { NamedAlgo } from "../src/scripts/types.js";
-import * as utils from "../src/scripts/utils.js";
+import { getAlgoParams } from "../src/utils/scripts-webauthn/server.js";
+import { NamedAlgo } from "../src/utils/scripts-webauthn/types.js";
+import * as utils from "../src/utils/scripts-webauthn/utils.js";
 import { convertToHexAndPad } from "../src/utils/bits.js";
 import circuit from "../src/circuits/authentication/target/authentication.json" assert { type: "json" };
 import { webcrypto } from "node:crypto";
 
 import * as crypto from "node:crypto";
-import { validateWitness } from "../src/berretenberg-api/index.js";
+import { validateWitness } from "../src/utils/berretenberg-api/index.js";
 import { expect } from "chai";
 
 describe("test authentication", () => {
@@ -20,7 +20,12 @@ describe("test authentication", () => {
     const clientData = authenticaion.clientData;
     const signature = authenticaion.signature;
 
-    const algoParams = getAlgoParams(algorithm);
+    //const algoParams = getAlgoParams(algorithm);
+    const algoParams = {
+      name: "ECDSA",
+      namedCurve: "P-256",
+      hash: "SHA-256",
+    };
     console.log(algoParams);
     console.log(publicKey);
     let cryptoKey = await parseCryptoKey(algoParams, publicKey);

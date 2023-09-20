@@ -1,3 +1,4 @@
+import { buildPoseidon } from "../crypto/poseidon_wasm.js";
 import { Leaf, MerkleTree } from "./merkle-tree.js";
 
 export class NormalMerkleTree extends MerkleTree {
@@ -11,4 +12,9 @@ export class NormalMerkleTree extends MerkleTree {
     this.update(this.leaves.length - 1);
     return this.leaves.length - 1;
   }
+}
+
+export async function createCleanTree(hight: number) {
+  let poseidon = await buildPoseidon();
+  return new NormalMerkleTree(hight, buildPoseidon);
 }

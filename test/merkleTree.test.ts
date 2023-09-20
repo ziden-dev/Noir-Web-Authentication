@@ -1,11 +1,11 @@
-import { CryptographyPrimitives } from "../src/crypto/index.js";
+import { CryptographyPrimitives } from "../src/utils/crypto/index.js";
 import { expect } from "chai";
-import { buildPoseidon } from "../src/crypto/poseidon_wasm.js";
-import { NormalMerkleTree } from "../src/tree/normal-merkle-tree.js";
+import { buildPoseidon } from "../src/utils/crypto/poseidon_wasm.js";
+import { NormalMerkleTree } from "../src/utils/tree/normal-merkle-tree.js";
 
 import circuit from "../src/circuits/merkleTree/target/merkleTree.json" assert { type: "json" };
 import { convertToHexAndPad } from "../src/utils/bits.js";
-import { validateWitness } from "../src/berretenberg-api/index.js";
+import { validateWitness } from "../src/utils/berretenberg-api/index.js";
 
 describe("test merkle tree ", () => {
   let poseidon: any;
