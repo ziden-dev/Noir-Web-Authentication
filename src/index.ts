@@ -6,7 +6,6 @@ export interface registerProofWitness {
   accountIndex: number;
   accountPath: BigInt[];
   accountNewRoot: BigInt;
-  accountOldRoot: BigInt;
   stateIndex: number;
   statePath: BigInt[];
   stateNewRoot: BigInt;
@@ -39,4 +38,9 @@ export interface authenticaionProofWitness {
   statePath: BigInt[];
   stateIndex: number;
   stateRoot: BigInt;
+}
+
+export interface RSAPublicKey {
+  x: string;
+  y: string;
 }

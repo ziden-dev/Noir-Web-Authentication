@@ -20,3 +20,45 @@ export const authenticaion = {
   signature:
     "MEQCICEHhoUCeXV0kvtaNaBO6z5yYB4J93bU3E7YWTvZVR48AiAh_qzZU60iPJDOdyVR8NdWZpdEbiU7eMtb9a4j6asOiQ==",
 };
+
+export const registrations = [
+  {
+    username: "tuan",
+    credential: {
+      id: "GX6dMJFlU9FbJcSoG9AWOSb0dW-ZnOtH8X_s2H1yGXk",
+      publicKey:
+        "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE-Yee9lUyLeZo6NmEyWA5ZS4y0nvoxdPJN96_B3x1zTLuaUDSDUn_-nKmf2IcM7pzVqx3ZllJpQmQcW6fO9j_jQ==",
+      algorithm: "ES256",
+    },
+    authenticatorData:
+      "SZYN5YgOjGh0NBcPZHZgW4_krrmihjLHmVzzuoMdl2NFAAAAAK3OAAI1vMYKZIsLJfHwVQMAIBl-nTCRZVPRWyXEqBvQFjkm9HVvmZzrR_F_7Nh9chl5pQECAyYgASFYIPmHnvZVMi3maOjZhMlgOWUuMtJ76MXTyTfevwd8dc0yIlgg7mlA0g1J__pypn9iHDO6c1asd2ZZSaUJkHFunzvY_40=",
+    clientData:
+      "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiMjI0NDY2ODgiLCJvcmlnaW4iOiJodHRwOi8vbG9jYWxob3N0OjMwMDAiLCJjcm9zc09yaWdpbiI6ZmFsc2V9",
+  },
+  {
+    username: "nam",
+    credential: {
+      id: "vZe_YiSbArAv2zxi4z0bn0bShDablChTvQB_6Dfru18",
+      publicKey:
+        "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEOSLDQM5TxSNLYaujfa2lyvuxRvA_O8nn_EAk3a_s5J1cK_yPf8Q5EDC0Gm4ktdCnW-fbh3mQxcNCwoDpaBMwFA==",
+      algorithm: "ES256",
+    },
+    authenticatorData:
+      "SZYN5YgOjGh0NBcPZHZgW4_krrmihjLHmVzzuoMdl2NFAAAAAK3OAAI1vMYKZIsLJfHwVQMAIL2Xv2IkmwKwL9s8YuM9G59G0oQ2m5QoU70Af-g367tfpQECAyYgASFYIDkiw0DOU8UjS2Gro32tpcr7sUbwPzvJ5_xAJN2v7OSdIlggXCv8j3_EORAwtBpuJLXQp1vn24d5kMXDQsKA6WgTMBQ=",
+    clientData:
+      "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiMjI0NDY2ODgiLCJvcmlnaW4iOiJodHRwOi8vbG9jYWxob3N0OjMwMDAiLCJjcm9zc09yaWdpbiI6ZmFsc2V9",
+  },
+  {
+    username: "tuan2",
+    credential: {
+      id: "YQhzFvBWe8CN0VsdHVPUB61jGy4YgBkynISb6HfGiVU",
+      publicKey:
+        "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEwRlGFIs0A2cVAwd9LZD9lyANqfjirThc4E0yAtxP_oGft13S6S2wN1ls-f0SZylyTRTidx2fvpg-xoBFElHp2Q==",
+      algorithm: "ES256",
+    },
+    authenticatorData:
+      "SZYN5YgOjGh0NBcPZHZgW4_krrmihjLHmVzzuoMdl2NFAAAAAK3OAAI1vMYKZIsLJfHwVQMAIGEIcxbwVnvAjdFbHR1T1AetYxsuGIAZMpyEm-h3xolVpQECAyYgASFYIMEZRhSLNANnFQMHfS2Q_ZcgDan44q04XOBNMgLcT_6BIlggn7dd0uktsDdZbPn9Emcpck0U4ncdn76YPsaARRJR6dk=",
+    clientData:
+      "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiMjI0NDY2ODgiLCJvcmlnaW4iOiJodHRwOi8vbG9jYWxob3N0OjMwMDAiLCJjcm9zc09yaWdpbiI6ZmFsc2V9",
+  },
+];

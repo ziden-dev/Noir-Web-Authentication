@@ -1,4 +1,4 @@
-import { NormalMerkleTree } from "../utils/tree/normal-merkle-tree";
+import { NormalMerkleTree } from "../../utils/tree/normal-merkle-tree";
 
 export default class State {
   public tree: NormalMerkleTree;

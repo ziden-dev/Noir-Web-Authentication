@@ -1,24 +1,17 @@
-import Account from "../accounts";
-import State from "../state/state";
+import Account from "../models/accounts/account";
+import State from "../models/state/state";
 
 import * as utils from "../utils/scripts-webauthn/utils.js";
 import { parseCryptoKey } from "../utils/scripts-webauthn/server";
 import { error } from "console";
-export async function changeAmount(
-  authenticaion: any,
-  acc: Account,
-  state: State
-) {
+export async function changeAmount(authenticaion: any, acc: Account, state: State) {
   const authenticatorData = authenticaion.authenticatorData;
   const clientData = authenticaion.clientData;
   const signature = authenticaion.signature;
 
   let clientHash = await utils.sha256(utils.parseBase64url(clientData));
 
-  let comboBuffer = utils.concatenateBuffers(
-    utils.parseBase64url(authenticatorData),
-    clientHash
-  );
+  let comboBuffer = utils.concatenateBuffers(utils.parseBase64url(authenticatorData), clientHash);
   let signatureBuffer = utils.parseBase64url(signature);
 
   const algoParams = { name: "ECDSA", namedCurve: "P-256", hash: "SHA-256" };
@@ -30,12 +23,7 @@ export async function changeAmount(
   acc.spkis.forEach(async function (spki, index) {
     let cryptoKey = await parseCryptoKey(algoParams, spki);
     console.debug(cryptoKey);
-    const isValid = await crypto.subtle.verify(
-      algoParams,
-      cryptoKey,
-      signatureBuffer,
-      comboBuffer
-    );
+    const isValid = await crypto.subtle.verify(algoParams, cryptoKey, signatureBuffer, comboBuffer);
 
     let small = await acc.tree.getPathProof(index);
 

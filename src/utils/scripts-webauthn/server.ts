@@ -8,6 +8,7 @@ import {
   RegistrationParsed,
 } from "./types.js";
 import * as utils from "./utils.js";
+import * as crypto from "node:crypto";
 
 async function isValid(validator: any, value: any): Promise<boolean> {
   if (typeof validator === "function") {
