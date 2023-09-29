@@ -4,13 +4,10 @@ import { createCleanTree } from "../src/utils/tree/normal-merkle-tree.js";
 import { addKey, register } from "../src/witness/accountTransaction.js";
 
 import circuitRegister from "../src/circuits/registerTransaction/target/registerTransaction.json" assert { type: "json" };
-
 import circuitAddKey from "../src/circuits/addKeyTransaction/target/addKeyTransaction.json" assert { type: "json" };
-
 import { convertToHexAndPad, object2Array } from "../src/utils/bits.js";
 import { validateWitness } from "../src/utils/berretenberg-api/index.js";
 import { expect } from "chai";
-import Account from "../src/models/accounts/account.js";
 
 describe("test account transaction", () => {
   let accounts: any[] = [];
